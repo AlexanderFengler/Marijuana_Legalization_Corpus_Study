@@ -33,7 +33,7 @@ if __name__ == "__main__":
     #machine = 'alex'
     n_gru_vec = [64, 128, 256, 512, 1024, 50, 100, 200, 400, 800]
     n_gru = n_gru_vec[idx]
-    epochs = 10
+    epochs = 50
     batch_size = 32
     validation_split = 0.2
 
@@ -174,7 +174,7 @@ if __name__ == "__main__":
         """
         if address is not None or not os.path.isfile(address):
             stop = EarlyStopping(monitor = 'val_loss', min_delta = 0, 
-                                patience = 5, verbose = 1, mode = 'auto')
+                                patience = 20, verbose = 1, mode = 'auto')
             save = ModelCheckpoint(address, 
                                    monitor = 'val_loss', 
                                    verbose = 1, 
