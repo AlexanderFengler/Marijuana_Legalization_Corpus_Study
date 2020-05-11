@@ -202,6 +202,7 @@ if __name__ == "__main__":
         address1 = '/users/afengler/OneDrive/git_repos/marijuana_Lgalization_corpus_study/gru_weights' + '_' + str(idx) + '.h5'
     if machine == 'babak':
         # PUT YOUR FOLDER STRUCTURE HERE
+        pass
 
     print('model checkpoint address: ', address1)
     model_info1 = build_model(model, address1)
