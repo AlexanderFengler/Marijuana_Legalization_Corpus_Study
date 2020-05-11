@@ -197,16 +197,15 @@ if __name__ == "__main__":
         return model_info
 
     if machine == 'ccv':
-        address1 = '/users/afengler/git_repos/marijuana_legalization_corpus_study/gru_weights' + '_' + str(idx) + '.h5'
+        address1 = '/users/afengler/git_repos/Marijuana_Legalization_Corpus_Study/gru_weights' + '_' + str(idx) + '.h5'
     if machine  == 'alex':
-        address1 = '/users/afengler/OneDrive/git_repos/marijuana_legalization_corpus_study/gru_weights' + '_' + str(idx) + '.h5'
+        address1 = '/users/afengler/OneDrive/git_repos/marijuana_Lgalization_corpus_study/gru_weights' + '_' + str(idx) + '.h5'
     if machine == 'babak':
         # PUT YOUR FOLDER STRUCTURE HERE
-        
 
     print('model checkpoint address: ', address1)
     model_info1 = build_model(model, address1)
-    model_info1['model'].save('/users/afengler/git_repos/marijuana_legalization_corpus_study/gru_model_final_' + str(idx) + '.h5')
+    model_info1['model'].save('/users/afengler/git_repos/Marijuana_Legalization_Corpus_Study/gru_model_final_' + str(idx) + '.h5')
 
     def check_prediction(model, num_predict):
         true_print_out = 'Actual words: '
