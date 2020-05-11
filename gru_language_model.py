@@ -31,7 +31,7 @@ if __name__ == "__main__":
     idx = args.idx
 
     #machine = 'alex'
-    n_gru_vec = [64, 128, 256, 512]
+    n_gru_vec = [64, 128, 256, 512, 1024, 50, 100, 200, 400, 800]
     n_gru = n_gru_vec[idx]
     epochs = 10
     batch_size = 32
