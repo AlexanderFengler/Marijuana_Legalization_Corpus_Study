@@ -175,13 +175,16 @@ if __name__ == "__main__":
         if address is not None or not os.path.isfile(address):
             stop = EarlyStopping(monitor = 'val_loss', min_delta = 0, 
                                 patience = 5, verbose = 1, mode = 'auto')
-            save = ModelCheckpoint(address, monitor = 'val_loss', 
-                                verbose = 0, save_best_only = True)
+            save = ModelCheckpoint(address, 
+                                   monitor = 'val_loss', 
+                                   verbose = 1, 
+                                   save_best_only = False)
             callbacks = [stop, save]
 
             start = time()
             history = model.fit(X, Y, batch_size = batch_size, 
-                                epochs = epochs, verbose = 1,
+                                epochs = epochs, 
+                                verbose = 2,
                                 validation_split = validation_split,
                                 callbacks = callbacks)
             elapse = time() - start
@@ -194,15 +197,16 @@ if __name__ == "__main__":
         return model_info
 
     if machine == 'ccv':
-        address1 = '/users/afengler/git_repos/Marijuana_legalization_corpus_study/gru_weights' + '_' + str(idx) + '.h5'
+        address1 = '/users/afengler/git_repos/marijuana_legalization_corpus_study/gru_weights' + '_' + str(idx) + '.h5'
     if machine  == 'alex':
-        address1 = '/users/afengler/OneDrive/git_repos/marijuana_legalization_corpus_study/gru_weight' + '_' + str(idx) + '.h5'
+        address1 = '/users/afengler/OneDrive/git_repos/marijuana_legalization_corpus_study/gru_weights' + '_' + str(idx) + '.h5'
     if machine == 'babak':
         # PUT YOUR FOLDER STRUCTURE HERE
-        pass
+        
 
     print('model checkpoint address: ', address1)
     model_info1 = build_model(model, address1)
+    model_info1['model'].save('/users/afengler/git_repos/marijuana_legalization_corpus_study/gru_model_final_' + str(idx) + '.h5')
 
     def check_prediction(model, num_predict):
         true_print_out = 'Actual words: '
